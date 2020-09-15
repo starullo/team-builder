@@ -13,7 +13,7 @@ const initialFormValues = {
   name: '',
   email: '',
   role: ''
-}
+};
 
 function App() {
   const [friends, setFriends] = useState([{
@@ -49,7 +49,7 @@ const submitForm = () => {
 
   }
   setFriends([...friends, addFriend]);
-  setFormValues([]);
+  setFormValues(initialFormValues);
 }
 
   return (
@@ -67,7 +67,7 @@ const submitForm = () => {
             </FriendContainer>
           )
         })}
-        <Form updateForm={updateForm} submitForm={submitForm} friends={friends} formValues={formValues}/>
+        <Form updateForm={updateForm} setFormValues={setFormValues} submitForm={submitForm} friends={friends} formValues={formValues}/>
       </div>
     </div>
   );

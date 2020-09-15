@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 
 
-
 const FormCont = styled.form`
 text-align: center;
 font-size: 2rem;
@@ -26,7 +25,7 @@ height: 40px;
 margin-bottom: 10px;
 `
 export default function Form(props) {
-const {updateForm, submitForm, friends, formValues} = props;
+const {updateForm, submitForm, setFormValues, friends, formValues} = props;
 
 const onChange = e => {
     const {name, value} = e.target;
@@ -43,14 +42,14 @@ return (
     <FormCont onSubmit={onSubmit}>
         <p>Enter more friends using this amazing form </p>
         <label>Name
-            <Input onChange={onChange} type='text' name='name'  placeholder='Enter your name'
+            <Input onChange={onChange} type='text' name='name' value={formValues.name}placeholder='Enter your name'
             maxLength='50' />
         </label><br></br>
         <label>Email
-            <Input onChange={onChange} type='email' name='email'  placeholder='Enter your email' maxLength='50' />
+            <Input onChange={onChange} type='email' name='email' value={formValues.email}  placeholder='Enter your email' maxLength='50' />
         </label><br></br>
         <label>Role
-            <Select onChange={onChange} name='role' >
+            <Select value={formValues.role} onChange={onChange} name='role' >
                 <option value=''>SELECT ROLE!</option>
                 <option value='captain'>Captain</option>
                 <option value='cat'>Cat</option>
